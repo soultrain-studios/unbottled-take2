@@ -1,4 +1,5 @@
-<html ng-app="reviewApp">
+<html ng-app="unbottled">
+
 
 <head>
 	<title>
@@ -23,40 +24,48 @@
 
 </head>
 
-<body ng-controller="ReviewsController">
+<body ng-controller="UnbottledController">
 
 	<!--div id="voted-notification">
 	<h1>You've voted!</h1>
 
 	<p>Thanks for voting! Random fact here blah blah blah. Your vote helps contribute to making water free and more accessible!</p>
-	</div-->
+</div-->
 
-	<nav class="container-fluid" id="nav">
-		
-		<div class="row">
-			<div class="col-md-12">
-				<p><img src="images/unbottled-logo.png" /></p>
-			</div>
+<!-- Facebook Share Button-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- Facebook Share Button-->
+
+<!-- Twitter link-->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+<!-- Twitter link-->
+
+<nav class="container-fluid" id="nav">
+	<div class="row">
+		<div class="col-md-12">
+			<p><img src="images/unbottled-logo.png" /></p>
 		</div>
+	</div>
+</nav>
 
-	</nav>
-
-	<div id="wrap" class="container">
-
-		<div class="row">
-
-			<!-- Top school -->
-			<div id="section-topSchool" class="section col-md-12">
-
+<div id="wrap" class="container">
+	<div class="row">
+		<!-- Top school -->
+		<div id="section-topSchool" class="section col-md-12">
 			<br />
 			<br />
 			<br />
-
-
-				<p><img src="images/top-star.png" /><br />
-
-				<strong>A.Y. Jackson Secondary School</strong> is the current top school!</p>
-				
+			<p><img src="images/top-star.png" /><br />
+				<strong>A.Y. Jackson Secondary School</strong> is the current top school!</p>			
 			</div><!-- /section-topSchool -->
 		</div>
 
@@ -66,9 +75,27 @@
 			<div id="section-searchSchool" class="section col-md-12">
 
 				<h1>Look for a school to<br />see their stats!</h1>
+
+				<!--form>
+					<select name="schoolList" id="list_schools">
+
+						<option value="school_1">Glebe Collegiate Institute</option>
+
+						<option value="school_2">A.Y. Jackson Secondary School</option>
+
+						<option value="school_3">Colonel By Secondary School</option>
+
+					</select>
+				</form-->
+
 				<select ng-model="schoolChoice">
-    				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
-  				</select>
+					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+				</select>
+
+				<select ng-model="schoolChoice">
+					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+				</select>
+
 			</div><!-- /section-searchSchools-->
 		</div>
 
@@ -81,115 +108,62 @@
 		<div class="row">
 			<div id="section-listSchools" class="section col-md-12">
 
-			<h1>Current rankings</h1>
-			
-			<!-- School item -->
-			<div class="school-item"><a name="school-id"></a>
-				<div class="school-rank">
-					<strong>Rank:</strong><br />
-					2
+				<h1>Current rankings</h1>
+
+				<!-- School item -->
+				<div class="school-item" ng-repeat="school in WaterInfo">
+					<div class="school-rank">
+						<strong>Rank:</strong><br />
+						<!--Temporary-->	{{$index + 1}}
+					</div>
+
+					<div class="school-name">
+						<strong>{{school.School}}<span class="score-number">(score: {{school.Score}})</span></strong>
+					</div>
+
+					<div class="school-vote">
+						<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
+
+						<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
+					</div>
+
+					<div style="clear: both"></div>
+
+					<div class="school-social">
+
+
+						<a class="fb-share-button" data-href="http://www.cbc.ca/news/plastic-bottles-leach-chemicals-into-water-study-1.605134" data-type="link"></a> 
+						<a href="https://twitter.com/share?status=Hey, i just voted foe {{school.School}}" class="twitter-share-button" data-lang="en">Tweet</a>
+
+					</div><!-- /section-listSchools -->
 				</div>
 
-				<div class="school-name">
-					<strong>Glebe Collegiate Institute <span class="score-number">(score: 123456)</span></strong>
-				</div>
+			</div>
 
-				<div class="school-vote">
-					<div id="upvote" name="poll" ng-model="poll" value="1"></div>
-					<span class="glyphicon glyphicon-hand-up"></span>
+			<footer>
 
-					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
-				</div>
+				<p>Program by Soultrain Studios</p>
 
-				<div style="clear: both"></div>
+			</footer>
 
-				<div class="school-social">
-					<a href="#">Share on Facebook</a> |
-					<a href="#">Share on Twitter</a>
-				</div>
-			</div><!-- /school-item -->
+			<!---- JS ---->
+			<!-- Angular CDN -->
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 
+			<!-- Firebase CDN -->
+			<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
 
+			<!-- AngularFire CDN -->
+			<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
-			<!-- School item -->
-			<div class="school-item"><a name="school-id"></a>
-				<div class="school-rank">
-					<strong>Rank:</strong><br />
-					3
-				</div>
+			<!-- Our app.js -->
+			<script src='js/app.js'></script>
+			<div ng-bind-html="to_trusted(WaterInfos.0.longDescription)"></div>
 
-				<div class="school-name">
-					<strong>Lisgar Collegiate Institute <span class="score-number">(score: 123456)</span></strong>
-				</div>
+			<!-- Our js -->
+			<!--script src='js/app.js'></script-->
+			<script src='js/display.js'></script>
+			<script src='js/app1.js'></script>
 
-				<div class="school-vote">
-					<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
-
-					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
-				</div>
-
-				<div style="clear: both"></div>
-
-				<div class="school-social">
-					<a href="#">Share on Facebook</a> |
-					<a href="#">Share on Twitter</a>
-				</div>
-			</div><!-- /school-item -->
-
-
-
-			<!-- School item -->
-			<div class="school-item"><a name="school-id"></a>
-				<div class="school-rank">
-					<strong>Rank:</strong><br />
-					4
-				</div>
-
-				<div class="school-name">
-					<strong>Colonel By Secondary School <span class="score-number">(score: 123456)</span></strong>
-				</div>
-
-				<div class="school-vote">
-					<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
-
-					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
-				</div>
-
-				<div style="clear: both"></div>
-
-				<div class="school-social">
-					<a href="#">Share on Facebook</a> |
-					<a href="#">Share on Twitter</a>
-				</div>
-			</div><!-- /school-item -->
-
-
-
-			</div><!-- /section-listSchools -->
-		</div>
-		
-	</div>
-
-	<footer>
-
-		<p>Program by Soultrain Studios</p>
-
-	</footer>
-
-	<!---- JS ---->
-	<!-- Angular CDN -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
-
-	<!-- Firebase CDN -->
-	<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
-
-	<!-- AngularFire CDN -->
-	<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
-
-	<!-- Our js -->
-	<!--script src='js/app.js'></script-->
-	<script src='js/display.js'></script>
-	<script src='js/app.js'></script>
-
-</body>
-</html>
+		</body>
+		</html>
