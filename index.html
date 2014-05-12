@@ -1,4 +1,4 @@
-<html>
+<html ng-app="unbottled">
 
 <head>
 	<title>
@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body ng-controller="UnbottledController">
 
 	<!--div id="voted-notification">
 	<h1>You've voted!</h1>
@@ -31,32 +31,40 @@
 	<p>Thanks for voting! Random fact here blah blah blah. Your vote helps contribute to making water free and more accessible!</p>
 	</div-->
 
+	<!-- Facebook Share Button-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+	<!-- Facebook Share Button-->
+
+	<!-- Twitter link-->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+	<!-- Twitter link-->
+
 	<nav class="container-fluid" id="nav">
-		
 		<div class="row">
 			<div class="col-md-12">
 				<p><img src="images/unbottled-logo.png" /></p>
 			</div>
 		</div>
-
 	</nav>
 
 	<div id="wrap" class="container">
-
 		<div class="row">
-
 			<!-- Top school -->
 			<div id="section-topSchool" class="section col-md-12">
-
 			<br />
 			<br />
 			<br />
-
-
 				<p><img src="images/top-star.png" /><br />
-
-				<strong>A.Y. Jackson Secondary School</strong> is the current top school!</p>
-				
+				<strong>A.Y. Jackson Secondary School</strong> is the current top school!</p>			
 			</div><!-- /section-topSchool -->
 		</div>
 
@@ -89,16 +97,16 @@
 			<div id="section-listSchools" class="section col-md-12">
 
 			<h1>Current rankings</h1>
-			
+		
 			<!-- School item -->
-			<div class="school-item">
+			<div class="school-item" ng-repeat="school in WaterInfo">
 				<div class="school-rank">
 					<strong>Rank:</strong><br />
-					2
+				<!--Temporary-->	{{$index + 1}}
 				</div>
 
 				<div class="school-name">
-					<strong>Glebe Collegiate Institute <span class="score-number">(score: 123456)</span></strong>
+					<strong>{{school.School}}<span class="score-number">(score: {{school.Score}})</span></strong>
 				</div>
 
 				<div class="school-vote">
@@ -110,66 +118,11 @@
 				<div style="clear: both"></div>
 
 				<div class="school-social">
-					<a href="#">Share on Facebook</a> |
-					<a href="#">Share on Twitter</a>
+
+					<a class="fb-share-button" data-href="http://www.cbc.ca/news/plastic-bottles-leach-chemicals-into-water-study-1.605134" data-type="link"></a> 
+					<a href="https://twitter.com/share?status=Hey, i just voted foe {{school.School}}" class="twitter-share-button" data-lang="en">Tweet</a>
 				</div>
 			</div><!-- /school-item -->
-
-
-
-			<!-- School item -->
-			<div class="school-item">
-				<div class="school-rank">
-					<strong>Rank:</strong><br />
-					3
-				</div>
-
-				<div class="school-name">
-					<strong>Lisgar Collegiate Institute <span class="score-number">(score: 123456)</span></strong>
-				</div>
-
-				<div class="school-vote">
-					<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
-
-					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
-				</div>
-
-				<div style="clear: both"></div>
-
-				<div class="school-social">
-					<a href="#">Share on Facebook</a> |
-					<a href="#">Share on Twitter</a>
-				</div>
-			</div><!-- /school-item -->
-
-
-
-			<!-- School item -->
-			<div class="school-item">
-				<div class="school-rank">
-					<strong>Rank:</strong><br />
-					4
-				</div>
-
-				<div class="school-name">
-					<strong>Colonel By Secondary School <span class="score-number">(score: 123456)</span></strong>
-				</div>
-
-				<div class="school-vote">
-					<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
-
-					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
-				</div>
-
-				<div style="clear: both"></div>
-
-				<div class="school-social">
-					<a href="#">Share on Facebook</a> |
-					<a href="#">Share on Twitter</a>
-				</div>
-			</div><!-- /school-item -->
-
-
 
 			</div><!-- /section-listSchools -->
 		</div>
@@ -193,7 +146,8 @@
 	<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
 	<!-- Our app.js -->
-	<!--script src='js/app.js'></script-->
+	<script src='js/app.js'></script>
+	<div ng-bind-html="to_trusted(WaterInfos.0.longDescription)"></div>
 
 </body>
 </html>
