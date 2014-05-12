@@ -68,10 +68,12 @@
 				<h1>Look for a school to<br />see their stats!</h1>
 
 				<form>
-					<select onclick="get_theSchool()" name="schoolList" id="list-schools">
+					<select name="schoolList" id="list-schools">
 
-					<option value="Glebe Collegiate Institute">Glebe Collegiate Institute</option>
+					<option onclick="get_theSchool()" value="Glebe Collegiate Institute">Glebe Collegiate Institute</option>
+
 					<option value="Colonel By Secondary School">A.Y. Jackson Secondary School</option>
+
 					<option value="Lisgar Collegiate Institute">Colonel By Secondary School</option>
 
 					</select>
@@ -91,7 +93,7 @@
 			<h1>Current rankings</h1>
 			
 			<!-- School item -->
-			<div class="school-item">
+			<div class="school-item"><a name="school-id"></a>
 				<div class="school-rank">
 					<strong>Rank:</strong><br />
 					2
@@ -118,7 +120,7 @@
 
 
 			<!-- School item -->
-			<div class="school-item">
+			<div class="school-item"><a name="school-id"></a>
 				<div class="school-rank">
 					<strong>Rank:</strong><br />
 					3
@@ -145,7 +147,7 @@
 
 
 			<!-- School item -->
-			<div class="school-item">
+			<div class="school-item"><a name="school-id"></a>
 				<div class="school-rank">
 					<strong>Rank:</strong><br />
 					4
@@ -192,8 +194,9 @@
 	<!-- AngularFire CDN -->
 	<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
-	<!-- Our app.js -->
+	<!-- Our js -->
 	<!--script src='js/app.js'></script-->
+	<script src='js/display.js'></script>
 
 </body>
 </html>
