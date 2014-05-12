@@ -1,0 +1,25 @@
+<!-- Search schools -->
+		<div class="row">
+			<div id="section-searchSchool" class="section col-md-12">
+
+				<h1>Look for a school to<br />see their stats!</h1>
+
+
+				<form>
+					<select name="schoolList" id="list_schools">
+
+					<option value="school_1">Glebe Collegiate Institute</option>
+
+					<option value="school_2">A.Y. Jackson Secondary School</option>
+
+					<option value="school_3">Colonel By Secondary School</option>
+
+					</select>
+				</form>
+
+				<select ng-model="schoolChoice">
+    				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+  				</select>
+
+			</div><!-- /section-searchSchools-->
+		</div>
