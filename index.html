@@ -76,25 +76,21 @@
 
 				<h1>Look for a school to<br />see their stats!</h1>
 
-				<!--form>
+				<form>
 					<select name="schoolList" id="list_schools">
 
-						<option value="school_1">Glebe Collegiate Institute</option>
-
-						<option value="school_2">A.Y. Jackson Secondary School</option>
-
-						<option value="school_3">Colonel By Secondary School</option>
+						<option ng-repeat="school in WaterInfo"  value="school_{{school.id}}">{{school.School}}</option>
 
 					</select>
-				</form-->
+				</form>
 
-				<select ng-model="schoolChoice">
+				<!--select ng-model="schoolChoice">
 					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
 				</select>
 
 				<select ng-model="schoolChoice">
 					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
-				</select>
+				</select-->
 
 			</div><!-- /section-searchSchools-->
 		</div>
@@ -111,7 +107,7 @@
 				<h1>Current rankings</h1>
 
 				<!-- School item -->
-				<div class="school-item" ng-repeat="school in WaterInfo">
+				<div class="school-item" ng-repeat="school in WaterInfo"><a name="school_{{school.id}}"></a>
 					<div class="school-rank">
 						<strong>Rank:</strong><br />
 						<!--Temporary-->	{{$index + 1}}
