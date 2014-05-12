@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <html ng-app="unbottled">
+=======
+<html ng-app="reviewApp">
+>>>>>>> 5309b24cd9d2acd5916cf4112a586e5bf3028083
 
 <head>
 	<title>
@@ -23,7 +27,11 @@
 
 </head>
 
+<<<<<<< HEAD
 <body ng-controller="UnbottledController">
+=======
+<body ng-controller="ReviewsController">
+>>>>>>> 5309b24cd9d2acd5916cf4112a586e5bf3028083
 
 	<!--div id="voted-notification">
 	<h1>You've voted!</h1>
@@ -74,16 +82,30 @@
 			<div id="section-searchSchool" class="section col-md-12">
 
 				<h1>Look for a school to<br />see their stats!</h1>
+<<<<<<< HEAD
+
 
 				<form>
-					<select onclick="get_theSchool()" name="schoolList" id="list-schools">
+					<select name="schoolList" id="list_schools">
 
-					<option value="Glebe Collegiate Institute">Glebe Collegiate Institute</option>
-					<option value="Colonel By Secondary School">A.Y. Jackson Secondary School</option>
-					<option value="Lisgar Collegiate Institute">Colonel By Secondary School</option>
+					<option value="school_1">Glebe Collegiate Institute</option>
+
+					<option value="school_2">A.Y. Jackson Secondary School</option>
+
+					<option value="school_3">Colonel By Secondary School</option>
 
 					</select>
 				</form>
+
+				<select ng-model="schoolChoice">
+    				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+  				</select>
+
+=======
+				<select ng-model="schoolChoice">
+    				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+  				</select>
+>>>>>>> FETCH_HEAD
 			</div><!-- /section-searchSchools-->
 		</div>
 
@@ -97,9 +119,43 @@
 			<div id="section-listSchools" class="section col-md-12">
 
 			<h1>Current rankings</h1>
+<<<<<<< HEAD
 		
 			<!-- School item -->
 			<div class="school-item" ng-repeat="school in WaterInfo">
+=======
+			
+			<!-- School item -->
+			<div class="school-item"><a name="school_1"></a>
+				<div class="school-rank">
+					<strong>Rank:</strong><br />
+					2
+				</div>
+
+				<div class="school-name">
+					<strong>Glebe Collegiate Institute <span class="score-number">(score: 123456)</span></strong>
+				</div>
+
+				<div class="school-vote">
+					<div id="upvote" name="poll" ng-model="poll" value="1"></div>
+					<span class="glyphicon glyphicon-hand-up"></span>
+
+					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
+				</div>
+
+				<div style="clear: both"></div>
+
+				<div class="school-social">
+					<a href="#">Share on Facebook</a> |
+					<a href="#">Share on Twitter</a>
+				</div>
+			</div><!-- /school-item -->
+
+
+
+			<!-- School item -->
+			<div class="school-item"><a name="school_2"></a>
+>>>>>>> 5309b24cd9d2acd5916cf4112a586e5bf3028083
 				<div class="school-rank">
 					<strong>Rank:</strong><br />
 				<!--Temporary-->	{{$index + 1}}
@@ -119,8 +175,34 @@
 
 				<div class="school-social">
 
+<<<<<<< HEAD
 					<a class="fb-share-button" data-href="http://www.cbc.ca/news/plastic-bottles-leach-chemicals-into-water-study-1.605134" data-type="link"></a> 
 					<a href="https://twitter.com/share?status=Hey, i just voted foe {{school.School}}" class="twitter-share-button" data-lang="en">Tweet</a>
+=======
+
+			<!-- School item -->
+			<div class="school-item"><a name="school_3"></a>
+				<div class="school-rank">
+					<strong>Rank:</strong><br />
+					4
+				</div>
+
+				<div class="school-name">
+					<strong>Colonel By Secondary School <span class="score-number">(score: 123456)</span></strong>
+				</div>
+
+				<div class="school-vote">
+					<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
+
+					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
+				</div>
+
+				<div style="clear: both"></div>
+
+				<div class="school-social">
+					<a href="#">Share on Facebook</a> |
+					<a href="#">Share on Twitter</a>
+>>>>>>> 5309b24cd9d2acd5916cf4112a586e5bf3028083
 				</div>
 			</div><!-- /school-item -->
 
@@ -145,9 +227,16 @@
 	<!-- AngularFire CDN -->
 	<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
+<<<<<<< HEAD
 	<!-- Our app.js -->
 	<script src='js/app.js'></script>
 	<div ng-bind-html="to_trusted(WaterInfos.0.longDescription)"></div>
+=======
+	<!-- Our js -->
+	<!--script src='js/app.js'></script-->
+	<script src='js/display.js'></script>
+	<script src='js/app1.js'></script>
+>>>>>>> 5309b24cd9d2acd5916cf4112a586e5bf3028083
 
 </body>
 </html>
