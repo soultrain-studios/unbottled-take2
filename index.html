@@ -1,4 +1,4 @@
-<html>
+<html ng-app="reviewApp">
 
 <head>
 	<title>
@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body ng-controller="ReviewsController">
 
 	<!--div id="voted-notification">
 	<h1>You've voted!</h1>
@@ -66,18 +66,9 @@
 			<div id="section-searchSchool" class="section col-md-12">
 
 				<h1>Look for a school to<br />see their stats!</h1>
-
-				<form>
-					<select name="schoolList" id="list-schools">
-
-					<option onclick="get_theSchool()" value="Glebe Collegiate Institute">Glebe Collegiate Institute</option>
-
-					<option value="Colonel By Secondary School">A.Y. Jackson Secondary School</option>
-
-					<option value="Lisgar Collegiate Institute">Colonel By Secondary School</option>
-
-					</select>
-				</form>
+				<select ng-model="schoolChoice">
+    				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+  				</select>
 			</div><!-- /section-searchSchools-->
 		</div>
 
@@ -104,7 +95,8 @@
 				</div>
 
 				<div class="school-vote">
-					<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
+					<div id="upvote" name="poll" ng-model="poll" value="1"></div>
+					<span class="glyphicon glyphicon-hand-up"></span>
 
 					<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
 				</div>
@@ -197,6 +189,7 @@
 	<!-- Our js -->
 	<!--script src='js/app.js'></script-->
 	<script src='js/display.js'></script>
+	<script src='js/app.js'></script>
 
 </body>
 </html>
