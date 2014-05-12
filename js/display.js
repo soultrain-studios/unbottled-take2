@@ -7,3 +7,7 @@ $(function() {
 		return false;
 	});
 }) 
+
+var doneOverlay = function() {
+	
+}
