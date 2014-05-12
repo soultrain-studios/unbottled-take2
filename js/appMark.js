@@ -34,6 +34,13 @@ angular.module("reviewApp", ["firebase"])
         // Add our options to scope.
         $scope.schools = schools;
       });
+      // Casting Votes.
+
+      $scope.castvote = function(poll){
+        $scope.poll = poll;
+        $scope.saveData();
+      }
+
       // Save our data.
       $scope.saveData = function() {
         // Format our data.
