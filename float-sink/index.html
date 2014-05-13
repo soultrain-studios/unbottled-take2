@@ -58,7 +58,7 @@
 				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
 			</select>
 
-			<a href="#upvote" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
+			<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
 
 			<!--div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div-->
 
@@ -107,6 +107,9 @@
 
 			<!-- AngularFire CDN -->
 			<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+			<!-- NgCookies -->
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-cookies.min.js"></script>
 
 			<!-- Our js -->
 			<script src='js/display.js'></script>
