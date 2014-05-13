@@ -58,10 +58,6 @@
 					{{$index + 1}}
 				</div>
 
-				<div class="school-name">
-					<strong>{{school.School}} <span class="score-number">(score: {{school.Score}})</span></strong>
-				</div>
-
 				<div class="school-vote">
 					<a href="#vote"><span class="glyphicon glyphicon-thumbs-up"> </span></a>
 				</div>
@@ -82,21 +78,38 @@
 
 		<section id="sinking">
 			<h2>Sink to the bottom</h2>
-
 			<p>Here are the high schools who are still sinking to the bottom&hellip;</p>
+			<div class="school-name" ng-repeat="school in schools">
+					{{school.name}}
+				</div>
+				
+  <label>Does your school use bottled water?</label>
+  <br>
+  <label>Yes</label>
+  <input type="radio" name="poll" ng-model="poll" value="1">
+  <label>No</label>
+  <input type="radio" name="poll" ng-model="poll" value="0">
+  <br>
 
+  <input type="submit" value="Vote" ng-click="saveData()">
+
+  <div>
+    <ul>
+      <li ng-repeat="school in schools" ng-if="school.id == schoolChoice">
+        <h3>{{school.name}}</h3>
+          <ul>
+            <li>Total votes: {{school.totalVotes}}</li>
+            <li>Yes votes: {{school.yesVotes}}</li>
+            <li>No votes: {{school.noVotes}}</li>
+          </ul>
+      </li>
+    </ul>
 		</section>
-
-
-
-
 	</div>
 
 	<footer>
 		<!-- footer -->
 	</footer>
-
-
 	<!-- js -->
 	<!-- Angular CDN -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
