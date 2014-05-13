@@ -41,15 +41,12 @@
 				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
 			</select>
 
-			<label>Does your school use bottled water?</label>
-			<br>
-			<label>Yes</label>
-			<input type="radio" im name="poll" ng-model="poll" value="1">
-			<label>No</label>
-			<input type="radio" name="poll" ng-model="poll" value="0">
-			<br>
+			<div class="school-vote">
+					<div class="school-vote">
+					<a href="#upvote" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
+					<a href="#downvote" ng-click="castvote(0)"><span class="glyphicon glyphicon-hand-down"> </span></a>
+				</div>
 
-			<input type="submit" value="Vote" ng-click="saveData()">
 			
 			<section id="">
 

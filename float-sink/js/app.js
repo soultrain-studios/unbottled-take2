@@ -5,20 +5,16 @@ angular.module("reviewApp", ["firebase"])
   }])
   .controller("ReviewsController", ["$scope", "Unbottled",
     function($scope, unbottled) {
-
       // on "change" do stuff.
       unbottled.$on("change", function() {
         $scope.unbottled = unbottled;
-
         // Get the keys to create school options.
         var schools = {};
-
         for (schoolKey in unbottled) {
           // Filter only our school objects.
           if (typeof unbottled[schoolKey] === "object" && schoolKey !== "$id"){
             // Create our options array for our dropdown.
             schools[schoolKey] = unbottled[schoolKey];
-
             // Count and prep our data.
             schools[schoolKey].totalVotes = 0;
             schools[schoolKey].yesVotes = 0;
@@ -35,24 +31,26 @@ angular.module("reviewApp", ["firebase"])
             }
           }
         }
-
         // Add our options to scope.
         $scope.schools = schools;
       });
+      // Casting Votes.
 
+      $scope.castvote = function(poll){
+        $scope.poll = poll;
+        $scope.saveData();
+      }
       // Save our data.
       $scope.saveData = function() {
         // Format our data.
         var data = {
           poll: $scope.poll
         };
-
         // Save our data.
         $scope.unbottled.$child($scope.schoolChoice).$child('votes').$add(data);
-
         // Reset our form values.
         // $scope.schoolChoice = '';
-        $scope.poll = '';
+        $scope.poll = null;
       }
     }
   ]);
