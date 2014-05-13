@@ -38,48 +38,64 @@
 
 		<section id="search-add" class="row col-md-12">
 			<select ng-model="schoolChoice">
-    <option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
-  </select>
+				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+			</select>
 
-  <label>Does your school use bottled water?</label>
-  <br>
-  <label>Yes</label>
-  <input type="radio" name="poll" ng-model="poll" value="1">
-  <label>No</label>
-  <input type="radio" name="poll" ng-model="poll" value="0">
-  <br>
+			<label>Does your school use bottled water?</label>
+			<br>
+			<label>Yes</label>
+			<input type="radio" im name="poll" ng-model="poll" value="1">
+			<label>No</label>
+			<input type="radio" name="poll" ng-model="poll" value="0">
+			<br>
 
-  <input type="submit" value="Vote" ng-click="saveData()">
+			<input type="submit" value="Vote" ng-click="saveData()">
+			
+			<section id="">
 
-  <div>
-    <ul>
-      <li ng-repeat="school in schools" ng-if="school.id == schoolChoice">
-        <h3>{{school.name}}</h3>
-          <ul>
-            <li>Total votes: {{school.totalVotes}}</li>
-            <li>Yes votes: {{school.yesVotes}}</li>
-            <li>No votes: {{school.noVotes}}</li>
-          </ul>
-      </li>
-    </ul>
+				<article class="school-item" ng-repeat="school in schools">
+					<div class="school-rating">{{school.yesVotes}}</div>
+
+					<div class="school-name">{{school.name}}</div>
+
+					<div class="school-vote">
+						<a href="#upvote" name="poll" ng-model="poll" value="1"><span class="glyphicon glyphicon-hand-up"></span></a>
+					</div>
+				</article>
+				
+			</section>
+
+			<!--div>
+				<ul>
+					<li ng-repeat="school in schools">
+						<h3>{{school.name}}</h3>
+						<ul>
+							<li>Total votes: {{school.totalVotes}}</li>
+							<li>Yes votes: {{school.yesVotes}}</li>
+							<li>No votes: {{school.noVotes}}</li>
+						</ul>
+					</li>
+				</ul>
+			</div-->
 		</section>
-	</div>
 
-	<footer>
-		<!-- footer -->
-	</footer>
-	<!-- js -->
-	<!-- Angular CDN -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+		<footer>
+			<!-- footer -->
+		</footer>
 
-	<!-- Firebase CDN -->
-	<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+		<!-- js -->
 
-	<!-- AngularFire CDN -->
-	<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+		<!-- Angular CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 
-	<!-- Our js -->
-	<script src='js/display.js'></script>
-	<script src='js/app.js'></script>
-</body>
-</html>
+		<!-- Firebase CDN -->
+		<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+
+		<!-- AngularFire CDN -->
+		<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+		<!-- Our js -->
+		<script src='js/display.js'></script>
+		<script src='js/app.js'></script>
+	</body>
+	</html>
