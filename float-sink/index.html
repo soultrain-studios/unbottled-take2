@@ -1,0 +1,110 @@
+<html>
+<head>
+	<title>Float or Sink? Unbottle the water you drink!</title>
+
+	<!-- jQ -->
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700|Yanone+Kaffeesatz:400,700|Open+Sans+Condensed:300,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+	<!-- Our css -->
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+	<header>
+		<nav>
+			<!-- nav -->
+		</nav>
+	</header>
+
+	<div id="wrap" class="container">
+
+		<section id="what" class="row col-md-12">
+			<h2>What is this?</h2>
+
+			<p>780 million people lack access to clean drinking water. What about you?</p>
+
+			<p>Search your school to see where it's sitting in this website and you'll find out more about the Unbottled initiative.</p>
+		</section>
+
+		<section id="search-add" class="row col-md-12">
+			<h2>Search your school</h2>
+
+			<p>What's this all about? Look for your school to see where it's at, and answer one simple question.<br><br>
+
+				<select id="list_schools">
+					<option value="SchoolName">School name</option>
+
+					<option value="SchoolName2">School name</option>
+				</select>
+
+			</p>
+
+
+		</section>
+
+		<section id="floating" class="row col-md-12">
+			<h2>Float to the top</h2>
+
+			<p>These high schools have floated to the top. Congratulations!</p>
+
+			<!-- School item -->
+			<div class="school-item" ng-repeat="school in WaterInfo"><a name="school_{{school.id}}"></a>
+				<div class="school-rank">
+					<strong>Rank:</strong><br />
+					<!--Temporary-->
+					{{$index + 1}}
+				</div>
+
+				<div class="school-name">
+					<strong>{{school.School}} <span class="score-number">(score: {{school.Score}})</span></strong>
+				</div>
+
+				<div class="school-vote">
+					<a href="#vote"><span class="glyphicon glyphicon-thumbs-up"> </span></a>
+				</div>
+
+				<div style="clear: both"></div>
+
+				<div class="school-social">
+
+
+					<a class="fb-share-button" data-href="http://www.cbc.ca/news/plastic-bottles-leach-chemicals-into-water-study-1.605134" data-type="link">Share on Facebook</a> | 
+
+					<a href="https://twitter.com/share?status=I just voted for {{school.School}} #unbottled" class="twitter-share-button" data-lang="en">Tweet</a>
+
+				</div>
+			</div><!-- / School item -->
+
+		</section>
+
+		<section id="sinking">
+			<h2>Sink to the bottom</h2>
+
+			<p>Here are the high schools who are still sinking to the bottom&hellip;</p>
+
+
+		</section>
+
+
+
+
+	</div>
+
+	<footer>
+		<!-- footer -->
+	</footer>
+
+
+	<!-- js -->
+
+
+	<script src="js/display.js"></script>
+</body>
+</html>

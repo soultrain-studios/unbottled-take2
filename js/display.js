@@ -9,5 +9,5 @@ $(function() {
 }) 
 
 var doneOverlay = function() {
-	
+	var noteDiv = $("#voted-notification");
 }
