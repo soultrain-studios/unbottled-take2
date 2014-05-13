@@ -21,6 +21,12 @@ nav {
 	height: 100px;
 	background-color: #111;
 	margin: 0 !important;
+	text-align: center;
+}
+
+nav img {
+	height: 90px;
+	padding: 10px;
 }
 
 #wrap p {
@@ -35,14 +41,19 @@ nav {
 select { 
 	font-family: 'Open Sans';
 	font-size: 12pt;
+	text-align: center;
 }
 
 footer {
-
+	
 }
 
 #school-vote select {
 	/*width: 80%;*/
+}
+
+#sink-start {
+	background: url('images/bg-water.jpg') no-repeat top center;
 }
 
 .school-item {
