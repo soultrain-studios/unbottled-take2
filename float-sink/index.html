@@ -32,6 +32,8 @@
 
 	<header>
 		<nav>
+
+			<img src="images/unbottled-logo.png" />
 			<!-- nav -->
 		</nav>
 	</header>
@@ -58,21 +60,23 @@
 
 			<a href="#upvote" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
 
+			<!--div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div-->
+
 		</section>
 
 
 				
-		<section id="school-list">
+		<section id="school-list" class="row col-md-12">
 
 			<article class="school-item" ng-repeat="school in schools">
-
-				<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div>
 
 				<div class="school-rank">{{school.yesVotes}}</div>
 				
 				<div class="school-name">{{school.name}}</div>
+				<div style="clear: both;"></div>
 
 			</article>
+
 
 		</section>
 
