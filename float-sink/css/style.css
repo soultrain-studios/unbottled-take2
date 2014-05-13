@@ -28,6 +28,10 @@ nav {
 	font-size: 16pt;
 }
 
+#what {
+	background: url('../images/bg-top.jpg') repeat-x top center;
+}
+
 select { 
 	font-family: 'Open Sans';
 	font-size: 12pt;
