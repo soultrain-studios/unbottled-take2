@@ -20,6 +20,16 @@
 </head>
 
 <body ng-controller="ReviewsController">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=174175329329604&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<header>
 		<nav>
 			<!-- nav -->
@@ -34,31 +44,37 @@
 			<p>780 million people lack access to clean drinking water. What about you?</p>
 
 			<p>Search your school to see where it's sitting in this website and you'll find out more about the Unbottled initiative.</p>
+
+			<br>
+			<br>
+			<br>
+			<br>
 		</section>
 
-		<section id="search-add" class="row col-md-12">
+		<section id="school-vote" class="row col-md-12">
 			<select ng-model="schoolChoice">
 				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
 			</select>
-			<div class="school-vote">
-					<div class="school-vote">
-					<a href="#upvote" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
-					<a href="#downvote" ng-click="castvote(0)"><span class="glyphicon glyphicon-hand-down"> </span></a>
-				</div>
-			
-			<section id="school-list">
 
-				<article class="school-item" ng-repeat="school in schools">
-					<div class="school-rank">{{school.yesVotes}}</div>
+			<a href="#upvote" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
 
-					<div class="school-name">{{school.name}}</div>
+		</section>
 
-					<div class="school-vote">
-						<a href="#upvote" name="poll" ng-model="poll" value="1"><span class="glyphicon glyphicon-hand-up"></span></a>
-					</div>
-				</article>
+
 				
-			</section>
+		<section id="school-list">
+
+			<article class="school-item" ng-repeat="school in schools">
+
+				<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div>
+
+				<div class="school-rank">{{school.yesVotes}}</div>
+				
+				<div class="school-name">{{school.name}}</div>
+
+			</article>
+
+		</section>
 
 			<!--div>
 				<ul>
@@ -72,25 +88,24 @@
 					</li>
 				</ul>
 			</div-->
-		</section>
 
-		<footer>
-			<!-- footer -->
-		</footer>
+			<footer>
+				<!-- footer -->
+			</footer>
 
-		<!-- js -->
+			<!-- js -->
 
-		<!-- Angular CDN -->
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+			<!-- Angular CDN -->
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 
-		<!-- Firebase CDN -->
-		<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+			<!-- Firebase CDN -->
+			<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
 
-		<!-- AngularFire CDN -->
-		<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+			<!-- AngularFire CDN -->
+			<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
-		<!-- Our js -->
-		<script src='js/display.js'></script>
-		<script src='js/app.js'></script>
-	</body>
-	</html>
+			<!-- Our js -->
+			<script src='js/display.js'></script>
+			<script src='js/app.js'></script>
+		</body>
+		</html>

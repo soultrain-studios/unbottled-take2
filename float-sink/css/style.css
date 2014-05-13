@@ -37,23 +37,20 @@ select {
 	font-size: 12pt;
 }
 
-#floating {
-	/* background*/
-}
-
-#sinking {
-	/* background */
-}
-
 footer {
 
+}
+
+#school-vote select {
+	width: 80%;
 }
 
 .school-item {
 	margin: 5px;
 	padding: 10px;
-	font-size: 12pt !important;
+	font-size: 11pt !important;
 	border-bottom: 1px solid #eee;
+	height: 60px;
 }
 
 .school-rank {
@@ -91,4 +88,9 @@ footer {
 
 .school-social {
 	text-align: center;
+}
+
+footer {
+	height: 100px;
+	width: 100%;
 }
