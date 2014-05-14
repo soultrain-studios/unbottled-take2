@@ -133,12 +133,12 @@
 					<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
 
 					<!-- Vote yes/no -->
-					<div class="voting-box">
+					<div class="voting-box" ng-hide="alreadyVoted" >
 						Do you buy bottled water at your school?<br />
 
-						<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
+						<a href="#upvote" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
 
-						<a href="#downvote" ng-hide="alreadyVoted" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
+						<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
 					</p>
 					</div>
 				</div>
