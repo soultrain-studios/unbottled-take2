@@ -100,6 +100,9 @@ footer {
 	width: 25%;
 }
 
+.modal-body {
+	text-align: center;
+}
 
 .school-vote .glyphicon {
 	font-size: 20pt;

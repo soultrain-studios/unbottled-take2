@@ -40,8 +40,9 @@
 					<h4 class="modal-title" id="myModalLabel">Thanks for voting!</h4>
 				</div>
 				<div class="modal-body">
-					<h4>Your vote helps contribute to making water free and more accessible!</h4>
-					<h4>Do you know that?</h4>
+					<p>Your vote helps contribute to making water free and more accessible!</p><br /><br />
+
+					<h4>Did you know?</h4>
 					<div id="message"></div>
 				</div>
 				<div class="modal-footer">
@@ -126,9 +127,9 @@
 					<p>
 						Do you buy bottled water at your school?<br />
 
-						<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
+						<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
 
-						<a href="#downvote" ng-click="castvote(0)"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
+						<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
 					</p>
 				</div>
 				
