@@ -37,7 +37,7 @@ angular.module("reviewApp", ["firebase", "ngCookies"])
 
       // Add cookie to scope.
       $scope.alreadyVoted = $cookies.alreadyVoted;
-      console.log($cookies);
+      // console.log($cookies);
   
       // Casting Votes.
       $scope.castvote = function(poll){
@@ -47,7 +47,7 @@ angular.module("reviewApp", ["firebase", "ngCookies"])
         // Set cookies and data.
         $cookies.alreadyVoted = true;
         $scope.alreadyVoted = true;
-      console.log($cookies);
+      // console.log($cookies);
       }
 
       // Save our data.
