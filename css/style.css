@@ -16,6 +16,10 @@ h6 {
 	text-transform: uppercase;
 }
 
+#what h1 {
+	text-shadow: 1px 1px 0px #fff !important;
+}
+
 nav {
 	height: 70px;
 	width: 100%;
@@ -49,10 +53,18 @@ nav img {
 	text-shadow: 1px 1px 0px #000;
 }
 
-#wall h2 { 
+#wall h1 { 
 	text-transform: uppercase !important;
 	font-size: 20pt;
 	margin-top: 90px;
+}
+
+#wall p {
+	font-size: 18pt;
+}
+
+#wall ol, #wall li {
+	text-align: center;
 }
 
 #what {

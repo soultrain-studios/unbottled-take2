@@ -75,71 +75,73 @@
 		<!-- Wall of shame -->
 		<section id="wall" class="row col-md-12">
 			
-			<h2>Bottom 3 Shamed Schools</h2>
-
-			<p><strong>#1</strong> Woodroffe High School</p>
-			<p><strong>#2</strong> Rideau High School</p>
-			<p><strong>#3</strong> Ridgemont High School</p>
-
-		</section>
-
-		<!-- Brief about section -->
-		<section id="what" class="row col-md-12">
-
-			<h2>What is this?</h2>
-
-			<p>780 million people lack access to clean drinking water. What about you?</p>
-
-			<p>Search your school to see where it's sitting in this website and you'll find out more about the Unbottled initiative.</p>
-
-		</section>
-		
-		<!-- School dropdown -->
-		<section id="school-vote" class="row col-md-12">
-
-			<h1>Is your school listed?</h1>
-
-			<p>If your school is listed, see its ranking in the Unbottled Wall of Shame.
-				<br />
-
-				<select id="list_schools" ng-model="schoolChoice">
-					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
-				</select>
-
-				<br /><br />
-
-			</p>
-
-		</section>
-
-		<!-- List of schools and voting -->
-		<section id="school-list" class="row col-md-12">
-
-			<h1>Unbottled's Wall of Shame</h1>
-
-			<article class="school-item" ng-repeat="school in schools | orderObjectBy: 'rank': true">
-				<a data-school-name="{{school.id}}" data-school-number="{{school.number}}"></a>
-
-				<!-- TODO Order ranking -->
-				<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
-
-				<div class="school-name">{{school.name}}</div>
-
-				<div style="clear: both;"></div>
+			<h1>Bottom 3 Shamed Schools</h2>
 				
-				<!-- Individual school stats -->
-				<div id="stats-{{school.number}}" data-school-name="{{school.id}}" class="school-stats">
-					<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
-					<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
+					<div ng-repeat="school in schools | orderObjectBy: 'rank': true | limitTo: 3">
 
-					<!-- Vote yes/no -->
-					<div class="voting-box" ng-hide="alreadyVoted" >
-						Do you buy bottled water at your school?<br />
+						<p>{{school.name}}</p>
 
-						<a href="#upvote" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
+						</div>
 
-						<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
-					</p>
+			</section>
+
+			<!-- Brief about section -->
+			<section id="what" class="row col-md-12">
+
+				<h1>What is this?</h1>
+
+				<p>780 million people lack access to clean drinking water. What about you?</p>
+
+				<p>Search your school to see where it's sitting in this website and you'll find out more about the Unbottled initiative.</p>
+
+			</section>
+
+			<!-- School dropdown -->
+			<section id="school-vote" class="row col-md-12">
+
+				<h1>Is your school listed?</h1>
+
+				<p>If your school is listed, see its ranking in the Unbottled Wall of Shame.
+					<br />
+
+					<select id="list_schools" ng-model="schoolChoice">
+						<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+					</select>
+
+					<br /><br />
+
+				</p>
+
+			</section>
+
+			<!-- List of schools and voting -->
+			<section id="school-list" class="row col-md-12">
+
+				<h1>List of Bottled Schools</h1>
+
+				<article class="school-item" ng-repeat="school in schools | orderObjectBy: 'rank': true">
+					<a data-school-name="{{school.id}}" data-school-number="{{school.number}}"></a>
+
+					<!-- TODO Order ranking -->
+					<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
+
+					<div class="school-name">{{school.name}}</div>
+
+					<div style="clear: both;"></div>
+
+					<!-- Individual school stats -->
+					<div id="stats-{{school.number}}" data-school-name="{{school.id}}" class="school-stats">
+						<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
+						<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
+
+						<!-- Vote yes/no -->
+						<div class="voting-box" ng-hide="alreadyVoted" >
+							Do you buy bottled water at your school?<br />
+
+							<a href="#upvote" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
+
+							<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
+						</p>
 					</div>
 				</div>
 
