@@ -72,6 +72,16 @@
 	</header>
 
 	<div id="wrap" class="container">
+		<!-- Wall of shame -->
+		<section id="wall" class="row col-md-12">
+			
+			<h2>Top 3 Shamed Schools</h2>
+
+			<p>Woodroffe High School</p>
+			<p>Rideau High School</p>
+			<p>Ridgemont High School</p>
+
+		</section>
 
 		<!-- Brief about section -->
 		<section id="what" class="row col-md-12">
@@ -81,6 +91,7 @@
 			<p>780 million people lack access to clean drinking water. What about you?</p>
 
 			<p>Search your school to see where it's sitting in this website and you'll find out more about the Unbottled initiative.</p>
+
 		</section>
 		
 		<!-- School dropdown -->
@@ -99,13 +110,12 @@
 
 			</p>
 
-
 		</section>
 
 		<!-- List of schools and voting -->
 		<section id="school-list" class="row col-md-12">
 
-			<h1>The Unbottled Wall of Shame</h1>
+			<h1>Unbottled's Wall of Shame</h1>
 
 			<article class="school-item" ng-repeat="school in schools">
 				<a data-school-name="{{school.id}}" data-school-number="{{school.number}}"></a>
@@ -123,26 +133,33 @@
 					<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
 
 					<!-- Vote yes/no -->
-					<p>
+					<div class="voting-box">
 						Do you buy bottled water at your school?<br />
 
 						<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
 
+<<<<<<< HEAD
 						<a href="#downvote" ng-hide="alreadyVoted" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
 					</p>
+=======
+						<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
+					</div>
+>>>>>>> e766ab27a5fe66b140d63ea813ecdec9c5ffb7dc
 				</div>
-				
 
-				
 				
 				<!-- TODO Add Twitter and Fb -->
+
+				<!--div id="school_{{school.number}}" class="school-social">
+
 				<div id="{{school.number}}" class="school-social">
 
+
 					<!-- Facebook share.. TO-DO add Twitter share -->
-					<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div>
+					<!--div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div>
 					<br /><br />
 
-				</div>
+				</div-->
 
 			</article>
 
