@@ -1,5 +1,17 @@
 $(function() {
-	$('#list_schools').change(function() {
-		console.log('change');
+	$("#list_schools").change(function() {
+		var anchor = $("[name="+ this.value +"]");
+		$("html,body").animate({
+			scrollTop: anchor.offset().top
+		},1000);
+
+		var schoolStats = $("#stats-school_"+this.value);
+		schoolStats.show();
+
+		return false;
 	});
+}) 
+
+$(document).ready(function() {
+	$(".school-item:nth-child(odd)").css('background-color','#eee');
 });

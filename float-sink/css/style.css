@@ -45,31 +45,38 @@ select {
 }
 
 footer {
-	
+	height: 100px;
+	width: 100%;
 }
 
 #school-vote select {
-	/*width: 80%;*/
+	width: 200px;
 }
 
 #sink-start {
-	background: url('..images/bg-water.jpg') no-repeat top center;
+	background: url('../images/bg-water.png') no-repeat top center;
 }
 
 .school-item {
-	margin: 5px;
 	padding: 10px;
-	font-size: 11pt !important;
+	font-size: 12pt !important;
 	border-bottom: 1px solid #eee;
-	height: 60px;
+	height: inherit;
+	background-color: #fff;
+}
+
+.school-item:hover {
+	background-color: #eee;
 }
 
 .school-rank {
 	text-align: center;
 	float: left;
-	width: 10%;
+	width: 12%;
 	
-	font-size: 10px;
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
 	background-color: #EEE;
 	padding: 5px;
 	border-radius: 4px;
@@ -83,7 +90,8 @@ footer {
 .school-name {
 	float: left;
 	width: 55%;
-	margin: 1%;
+	margin: 2%;
+	font-weight: bold;
 }
 
 .school-vote {
@@ -97,6 +105,11 @@ footer {
 	font-size: 20pt;
 }
 
+.school-stats p {
+	text-align: left !important;
+	font-size: 10pt !important;
+}
+
 .school-social {
 	text-align: center;
 }
@@ -104,4 +117,7 @@ footer {
 footer {
 	height: 100px;
 	width: 100%;
+	background-color: #111;
+	color: #eee;
+	text-align: center;
 }
