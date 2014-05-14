@@ -8,6 +8,9 @@ $(function() {
 		var schoolNum = $(anchor).attr('data-school-number');
 
 		var schoolStats = $("#stats-" + schoolNum);
+		// hide other stats
+		$(".school-stats").slideUp();
+		// show clicked school's stats
 		schoolStats.slideToggle();
 
 		return false;
