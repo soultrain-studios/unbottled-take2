@@ -93,7 +93,7 @@
 				<br />
 
 				<select id="list_schools" ng-model="schoolChoice">
-					<option ng-repeat="school in schools" value="school_{{school.number}}">{{school.name}}</option>
+					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
 				</select>
 
 				<br /><br />
@@ -109,7 +109,7 @@
 			<h1>The Unbottled Wall of Shame</h1>
 
 			<article class="school-item" ng-repeat="school in schools">
-				<a name="school_{{school.number}}"></a>
+				<a data-school-name="{{school.id}}" data-school-number="{{school.number}}"></a>
 
 				<!-- TODO Order ranking -->
 				<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
@@ -119,10 +119,10 @@
 				<div style="clear: both;"></div>
 				
 				<!-- Individual school stats -->
-				<div id="stats-school_{{school.number}}" class="school-stats">
+				<div id="stats-{{school.number}}" class="school-stats">
 					<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
 					<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
-
+					
 					<!-- Vote yes/no -->
 					<p>
 						Do you buy bottled water at your school?<br />
@@ -137,7 +137,7 @@
 				
 				
 				<!-- TODO Add Twitter and Fb -->
-				<div id="school_{{school.number}}" class="school-social">
+				<div id="{{school.number}}" class="school-social">
 
 					<!-- Facebook share.. TO-DO add Twitter share -->
 					<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div>
