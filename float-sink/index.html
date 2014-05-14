@@ -29,6 +29,28 @@
 		js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=174175329329604&version=v2.0";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script-->
+	
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					<h4 class="modal-title" id="myModalLabel">Thanks for voting!</h4>
+				</div>
+				<div class="modal-body">
+					<h4>Your vote helps contribute to making water free and more accessible!</h4>
+					<h4>Do you know that?</h4>
+					<div id="message"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
 
 	<header>
 		<nav>
@@ -50,7 +72,7 @@
 			<p>Search your school to see where it's sitting in this website and you'll find out more about the Unbottled initiative.</p>
 		</section>
 		
-		<!-- Vote section with school dropdown -->
+		<!-- School dropdown -->
 		<section id="school-vote" class="row col-md-12">
 
 			<h1>Is your school listed?</h1>
@@ -71,7 +93,7 @@
 
 	</section>
 
-	<!-- List of schools start -->
+	<!-- List of schools and voting -->
 	<section id="sink-start"></section>
 
 	<section id="school-list" class="row col-md-12">
@@ -80,13 +102,13 @@
 
 		<article class="school-item" ng-repeat="school in schools">
 			<a name="school_{{school.id}}"></a>
-
-			<div class="school-rank">{{school.yesVotes}}</div>
+			
+			<!-- TODO Order ranking -->
+			<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
 
 			<div class="school-name">{{school.name}}</div>
 
 			<div style="clear: both;"></div>
-
 
 			<div class="school-stats">
 				<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
@@ -95,9 +117,9 @@
 
 			<p>Do you buy the bottled water at your school?<br />
 
-				<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
+				<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)"><span class="btnClick glyphicon glyphicon-hand-up"> </span></a>
 
-				<a href="#downvote" ng-click="castvote(0)"><span class="glyphicon glyphicon-hand-down"> </span></a>
+				<a href="#downvote" ng-click="castvote(0)"><span class="btnClick glyphicon glyphicon-hand-down"> </span></a>
 				
 			</p>
 
