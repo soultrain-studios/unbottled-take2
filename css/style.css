@@ -20,12 +20,13 @@ nav {
 	height: 70px;
 	width: 100%;
 	margin: auto;
-	text-align: center;
+	padding: 10px;
+	text-align: center !important;
 }
 
 nav img {
 	text-align: center;
-	height: 100%;
+	height: 90%;
 }
 
 .navbar-brand a { text-align: center; }

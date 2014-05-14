@@ -64,7 +64,7 @@
 						<span class="icon-bar"></span>
 					</button-->
 					<p>
-						<a class="navbar-brand" href="#"><img src="images/unbottled-logo.png" /></a>
+						<a href="#"><img src="images/unbottled-logo.png" /></a>
 					</p>
 				</div>
 			</div><!-- /.container-fluid -->
@@ -92,7 +92,7 @@
 				<br />
 
 				<select id="list_schools" ng-model="schoolChoice">
-					<option ng-repeat="school in schools" value="school_{{school.id}}">{{school.name}}</option>
+					<option ng-repeat="school in schools" value="school_{{school.number}}">{{school.name}}</option>
 				</select>
 
 				<br /><br />
@@ -108,7 +108,7 @@
 			<h1>The Unbottled Wall of Shame</h1>
 
 			<article class="school-item" ng-repeat="school in schools">
-				<a name="school_{{school.id}}"></a>
+				<a name="school_{{school.number}}"></a>
 
 				<!-- TODO Order ranking -->
 				<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
@@ -134,7 +134,7 @@
 				</p>
 				
 				<!-- TODO Add Twitter and Fb -->
-				<div id="school_{{school.id}}" class="school-social">
+				<div id="school_{{school.number}}" class="school-social">
 
 					<!-- Facebook share.. TO-DO add Twitter share -->
 					<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div>
