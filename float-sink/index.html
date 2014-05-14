@@ -60,13 +60,11 @@
 				<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
 			</select>
 
-<<<<<<< HEAD
 			<br /><br />
 			
 			<a href="#upvote" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
-=======
+
 			<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)"><span class="glyphicon glyphicon-hand-up"> </span></a>
->>>>>>> FETCH_HEAD
 
 			<a href="#downvote" ng-click="castvote(0)"><span class="glyphicon glyphicon-hand-down"> </span></a>
 
@@ -88,6 +86,10 @@
 				
 				<div class="school-name">{{school.name}}</div>
 				<div style="clear: both;"></div>
+
+				<div>
+					
+				</div>
 
 			</article>
 
