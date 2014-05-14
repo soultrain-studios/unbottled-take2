@@ -52,7 +52,6 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div>
-
 	<header>
 		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="container-fluid">
@@ -129,7 +128,7 @@
 
 						<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
 
-						<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
+						<a href="#downvote" ng-hide="alreadyVoted" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
 					</p>
 				</div>
 				

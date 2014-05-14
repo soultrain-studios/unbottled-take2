@@ -24,3 +24,5 @@ myDataRef.on('child_added', function(snapshot) {
       function displayMessage(fact) {
       	$('#message').text(fact);
       };
+      
+
