@@ -10,8 +10,4 @@ $(function() {
 
 		return false;
 	});
-}) 
-
-$(document).ready(function() {
-	$(".school-item:nth-child(odd)").css('background-color','#eee');
-});
+})
