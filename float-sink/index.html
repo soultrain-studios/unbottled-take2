@@ -53,10 +53,21 @@
 	</div>
 
 	<header>
-		<nav>
-
-			<img src="images/unbottled-logo.png" />
-			<!-- nav -->
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<!--button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button-->
+					<p>
+						<a class="navbar-brand" href="#"><img src="images/unbottled-logo.png" /></a>
+					</p>
+				</div>
+			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
 
@@ -78,6 +89,7 @@
 			<h1>Is your school listed?</h1>
 
 			<p>If your school is listed, see its ranking in the Unbottled Wall of Shame.
+				<br />
 
 				<select id="list_schools" ng-model="schoolChoice">
 					<option ng-repeat="school in schools" value="school_{{school.id}}">{{school.name}}</option>
@@ -94,66 +106,68 @@
 		</section>
 
 		<!-- List of schools and voting -->
-		<section id="sink-start"></section>
-
 		<section id="school-list" class="row col-md-12">
 
 			<h1>The Unbottled Wall of Shame</h1>
 
 			<article class="school-item" ng-repeat="school in schools">
 				<a name="school_{{school.id}}"></a>
-				
+
 				<!-- TODO Order ranking -->
 				<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
 
 				<div class="school-name">{{school.name}}</div>
 
 				<div style="clear: both;"></div>
-
+				
+				<!-- Individual school stats -->
 				<div class="school-stats">
 					<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
 					<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
 				</div>
+				
 
-				<p>Do you buy the bottled water at your school?<br />
+				<!-- Vote yes/no -->
+				<p>
+					Do you buy bottled water at your school?<br />
 
 					<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)"><span class="btnClick glyphicon glyphicon-hand-up"> </span></a>
 
 					<a href="#downvote" ng-click="castvote(0)"><span class="btnClick glyphicon glyphicon-hand-down"> </span></a>
-					
 				</p>
-
+				
+				<!-- TODO Add Twitter and Fb -->
 				<div id="school_{{school.id}}" class="school-social">
 				</div>
 
 			</article>
 
-
 		</section>
+	
+	</div>
 
+	<!-- Footer -->
+	<footer>
 
-		<!-- Footer -->
-		<footer class="container-fluid">
-			<div class="row col-md-12">
-				Program by Soultrain Studios
-			</div>
-		</footer>
+		<p>Program by Soultrain Studios</p>
 
-		<!-- Firebase CDN -->
-		<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+	</footer>
 
-		<!-- Angular CDN -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
+	<!-- Firebase CDN -->
+	<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
 
-		<!-- AngularFire CDN -->
-		<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+	<!-- Angular CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
 
-		<!-- NgCookies -->
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-cookies.min.js"></script>
+	<!-- AngularFire CDN -->
+	<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 
-		<!-- Our js -->
-		<script src='js/display.js'></script>
-		<script src='js/app.js'></script>
+	<!-- NgCookies -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-cookies.min.js"></script>
 
-	</body>
-	</html>
+	<!-- Our js -->
+	<script src='js/display.js'></script>
+	<script src='js/app.js'></script>
+
+</body>
+</html>

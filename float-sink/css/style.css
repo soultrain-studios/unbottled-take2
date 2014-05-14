@@ -25,9 +25,12 @@ nav {
 }
 
 nav img {
-	height: 90px;
-	padding: 10px;
+	height: 100%;
 }
+
+.navbar-brand a { text-align: center; }
+
+.navbar { border-radius: 0 !important }
 
 #wrap p {
 	text-align: center;
@@ -51,10 +54,6 @@ footer {
 
 #school-vote select {
 	width: 200px;
-}
-
-#sink-start {
-	background: url('../images/bg-water.png') no-repeat top center;
 }
 
 .school-item {
@@ -117,7 +116,6 @@ footer {
 }
 
 footer {
-	height: 100px;
 	width: 100%;
 	background-color: #111;
 	color: #eee;
