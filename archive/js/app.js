@@ -1,10 +1,10 @@
-angular.module("reviewApp", ["firebase", "ngCookies"])
+angular.module("reviewApp", ["firebase"])
   .factory("Unbottled", ["$firebase", function($firebase) {
-    var ref = new Firebase("https://unbottledd.firebaseio.com");
+    var ref = new Firebase("https://unbottled2.firebaseio.com/");
     return $firebase(ref);
   }])
-  .controller("ReviewsController", ["$scope", "Unbottled", "$cookies",
-    function($scope, unbottled, $cookies) {
+  .controller("ReviewsController", ["$scope", "Unbottled",
+    function($scope, unbottled) {
       // on "change" do stuff.
       unbottled.$on("change", function() {
         $scope.unbottled = unbottled;
@@ -34,22 +34,6 @@ angular.module("reviewApp", ["firebase", "ngCookies"])
         // Add our options to scope.
         $scope.schools = schools;
       });
-
-      // Add cookie to scope.
-      $scope.alreadyVoted = $cookies.alreadyVoted;
-      console.log($cookies);
-  
-      // Casting Votes.
-      $scope.castvote = function(poll){
-        $scope.poll = poll;
-        $scope.saveData();
-
-        // Set cookies and data.
-        $cookies.alreadyVoted = true;
-        $scope.alreadyVoted = true;
-      console.log($cookies);
-      }
-
       // Save our data.
       $scope.saveData = function() {
         // Format our data.

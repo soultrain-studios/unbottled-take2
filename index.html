@@ -1,18 +1,10 @@
-<html ng-app="unbottled">
-
-
+<html ng-app="reviewApp">
 <head>
-	<title>
-		Unbottle your water!
-	</title>
-
-	<!---- CSS, jQuery and Bootstrap CSS and JS ---->
-	<!-- Google fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-
-	<!-- Our CSS files -->
-	<link rel="stylesheet" type="text/css" href="css/layout.css">
-
+	<title>Unbottled</title>
+	
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700|Yanone+Kaffeesatz:400,700|Open+Sans+Condensed:300,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
@@ -22,146 +14,162 @@
 	<!-- Bootstrap js -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+	<!-- Our css -->
+	<link rel="stylesheet" href="css/style.css">
+
 </head>
 
-<body ng-controller="UnbottledController">
+<body ng-controller="ReviewsController">
 
-	<!--div id="voted-notification">
-	<h1>You've voted!</h1>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=174175329329604&version=v2.0";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 
-	<p>Thanks for voting! Random fact here blah blah blah. Your vote helps contribute to making water free and more accessible!</p>
-</div-->
+		<div class="modal-dialog">
+			<div class="modal-content">
 
-<!-- Facebook Share Button-->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-<!-- Facebook Share Button-->
-
-<!-- Twitter link-->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
-<!-- Twitter link-->
-
-<nav class="container-fluid" id="nav">
-	<div class="row">
-		<div class="col-md-12">
-			<p><img src="images/unbottled-logo.png" /></p>
-		</div>
-	</div>
-</nav>
-
-<div id="wrap" class="container">
-	<div class="row">
-		<!-- Top school -->
-		<div id="section-topSchool" class="section col-md-12" style="text-shadow: 1px 1px 0px #fff">
-			<br />
-			<br />
-			<br />
-			<p><img src="images/top-star.png" /><br />
-			<strong>A.Y. Jackson Secondary School</strong> is in support of unbottled water!</p>
-
-			<p style="font-size: smaller; line-height: 1.2em; font-style: italic">&ldquo;884 million people in the world lack access to safe water supplies.&rdquo;</p>
-			</div><!-- /section-topSchool -->
-		</div>
-
-
-		<!-- Search schools -->
-		<div class="row">
-			<div id="section-searchSchool" class="section col-md-12">
-
-				<h1>Let people know that you support your school!</h1>
-
-				<form>
-					<select name="schoolList" id="list_schools">
-
-						<option ng-repeat="school in WaterInfo"  value="school_{{school.id}}">{{school.School}}</option>
-
-					</select>
-				</form>
-
-				<!--select ng-model="schoolChoice">
-					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
-				</select>
-
-				<select ng-model="schoolChoice">
-					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
-				</select-->
-
-			</div><!-- /section-searchSchools-->
-		</div>
-
-		
-		<!-- List all schools participating
-		- Current statistic (rating)
-		- Option to vote up, vote down
-		- Share statistics with Facebook 
-		- Share statistics with Twitter -->
-		<div class="row">
-			<div id="section-listSchools" class="section col-md-12">
-
-				<h1>Current rankings</h1>
-
-				<!-- School item -->
-				<div class="school-item" ng-repeat="school in WaterInfo"><a name="school_{{school.id}}"></a>
-					<div class="school-rank">
-						<strong>Rank:</strong><br />
-						<!--Temporary-->	{{$index + 1}}
-					</div>
-
-					<div class="school-name">
-						<strong>{{school.School}}<span class="score-number">(score: {{school.Score}})</span></strong>
-					</div>
-
-					<div class="school-vote">
-						<a href="#upvote"><span class="glyphicon glyphicon-hand-up"> </span></a>
-
-						<a href="#downvote"><span class="glyphicon glyphicon-hand-down"> </span></a>
-					</div>
-
-					<div style="clear: both"></div>
-
-					<div class="school-social">
-
-
-						<a class="fb-share-button" data-href="http://www.cbc.ca/news/plastic-bottles-leach-chemicals-into-water-study-1.605134" data-type="link"></a> 
-						<a href="https://twitter.com/share?status=Hey, i just voted foe {{school.School}}" class="twitter-share-button" data-lang="en">Tweet</a>
-
-					</div><!-- /section-listSchools -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					<h4 class="modal-title" id="myModalLabel">Thanks for voting!</h4>
+				</div>
+				<div class="modal-body">
+					<h4>Your vote helps contribute to making water free and more accessible!</h4>
+					<h4>Do you know that?</h4>
+					<div id="message"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 
-			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
 
-			<footer>
+	<header>
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<!--button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button-->
+					<p>
+						<a class="navbar-brand" href="#"><img src="images/unbottled-logo.png" /></a>
+					</p>
+				</div>
+			</div><!-- /.container-fluid -->
+		</nav>
+	</header>
 
-				<p>Program by Soultrain Studios</p>
+	<div id="wrap" class="container">
 
-			</footer>
+		<!-- Brief about section -->
+		<section id="what" class="row col-md-12">
 
-			<!---- JS ---->
-			<!-- Angular CDN -->
-			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+			<h2>What is this?</h2>
 
-			<!-- Firebase CDN -->
-			<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+			<p>780 million people lack access to clean drinking water. What about you?</p>
 
-			<!-- AngularFire CDN -->
-			<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+			<p>Search your school to see where it's sitting in this website and you'll find out more about the Unbottled initiative.</p>
+		</section>
+		
+		<!-- School dropdown -->
+		<section id="school-vote" class="row col-md-12">
 
-			<!-- Our app.js -->
-			<script src='js/app.js'></script>
-			<div ng-bind-html="to_trusted(WaterInfos.0.longDescription)"></div>
+			<h1>Is your school listed?</h1>
 
-			<!-- Our js -->
-			<!--script src='js/app.js'></script-->
-			<script src='js/display.js'></script>
-			<script src='js/app1.js'></script>
+			<p>If your school is listed, see its ranking in the Unbottled Wall of Shame.
+				<br />
 
-		</body>
-		</html>
+				<select id="list_schools" ng-model="schoolChoice">
+					<option ng-repeat="school in schools" value="school_{{school.id}}">{{school.name}}</option>
+				</select>
+
+				<br /><br />
+
+			</p>
+
+
+		</section>
+
+		<!-- List of schools and voting -->
+		<section id="school-list" class="row col-md-12">
+
+			<h1>The Unbottled Wall of Shame</h1>
+
+			<article class="school-item" ng-repeat="school in schools">
+				<a name="school_{{school.id}}"></a>
+
+				<!-- TODO Order ranking -->
+				<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
+
+				<div class="school-name">{{school.name}}</div>
+
+				<div style="clear: both;"></div>
+				
+				<!-- Individual school stats -->
+				<div class="school-stats">
+					<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
+					<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
+				</div>
+				
+
+				<!-- Vote yes/no -->
+				<p>
+					Do you buy bottled water at your school?<br />
+
+					<a href="#upvote" ng-hide="alreadyVoted" ng-click="castvote(1)"><span class="btnClick glyphicon glyphicon-hand-up"> </span></a>
+
+					<a href="#downvote" ng-click="castvote(0)"><span class="btnClick glyphicon glyphicon-hand-down"> </span></a>
+				</p>
+				
+				<!-- TODO Add Twitter and Fb -->
+				<div id="school_{{school.id}}" class="school-social">
+
+					<!-- Facebook share.. TO-DO add Twitter share -->
+					<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="link"></div>
+					<br /><br />
+
+				</div>
+
+			</article>
+
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer>
+
+		<p>Program by Soultrain Studios</p>
+
+	</footer>
+
+	<!-- Firebase CDN -->
+	<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+
+	<!-- Angular CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
+
+	<!-- AngularFire CDN -->
+	<script src="http://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+	<!-- NgCookies -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-cookies.min.js"></script>
+
+	<!-- Our js -->
+	<script src='js/display.js'></script>
+	<script src='js/app.js'></script>
+
+</body>
+</html>

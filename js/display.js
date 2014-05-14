@@ -4,10 +4,14 @@ $(function() {
 		$("html,body").animate({
 			scrollTop: anchor.offset().top
 		},1000);
+
+		var schoolStats = $("#stats-school_"+this.value);
+		schoolStats.show();
+
 		return false;
 	});
 }) 
 
-var doneOverlay = function() {
-	var noteDiv = $("#voted-notification");
-}
+$(document).ready(function() {
+	$(".school-item:nth-child(odd)").css('background-color','#eee');
+});
