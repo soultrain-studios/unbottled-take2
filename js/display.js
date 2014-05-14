@@ -6,7 +6,7 @@ $(function() {
 		},1000);
 
 		var schoolStats = $("#stats-school_"+this.value);
-		schoolStats.show();
+		schoolStats.slideToggle();
 
 		return false;
 	});

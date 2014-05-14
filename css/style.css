@@ -105,8 +105,11 @@ footer {
 	font-size: 20pt;
 }
 
-.school-stats p {
+.school-stats {
 	display: none;
+}
+
+.school-stats p {
 	margin-left: 14%;
 	padding-left: 5px;
 	text-align: left !important;
