@@ -3,6 +3,19 @@ angular.module("reviewApp", ["firebase", "ngCookies"])
     var ref = new Firebase("https://unbottledd.firebaseio.com");
     return $firebase(ref);
   }])
+  .filter('orderObjectBy', function() {
+    return function(items, field, reverse) {
+      var filtered = [];
+      angular.forEach(items, function(item) {
+        filtered.push(item);
+      });
+      filtered.sort(function (a, b) {
+        return (a[field] > b[field] ? 1 : -1);
+      });
+      if(reverse) filtered.reverse();
+      return filtered;
+    };
+  })
   .controller("ReviewsController", ["$scope", "Unbottled", "$cookies",
     function($scope, unbottled, $cookies) {
       // on "change" do stuff.
@@ -29,6 +42,12 @@ angular.module("reviewApp", ["firebase", "ngCookies"])
                 schools[schoolKey].noVotes++;
               }
             }
+
+            // Calc rank.
+            schools[schoolKey].rank = schools[schoolKey].yesVotes - schools[schoolKey].noVotes;
+
+            // for (schools[schoolKey].Rank=schools[schoolKey].yesVotes-schools[schoolKey].noVotes; schools[schoolKey].Rank< 4; schools[schoolKey].Rank++) {
+            // }
           }
         }
         // Add our options to scope.

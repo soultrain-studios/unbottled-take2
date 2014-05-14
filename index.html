@@ -117,7 +117,7 @@
 
 			<h1>Unbottled's Wall of Shame</h1>
 
-			<article class="school-item" ng-repeat="school in schools">
+			<article class="school-item" ng-repeat="school in schools | orderObjectBy: 'rank': true">
 				<a data-school-name="{{school.id}}" data-school-number="{{school.number}}"></a>
 
 				<!-- TODO Order ranking -->
