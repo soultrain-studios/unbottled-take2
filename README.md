@@ -1,7 +1,7 @@
-unbottled-take2
-===============
-
-Second take in the Unbottled project!
+myplanet-UnBottled
+============
+####By:
+![alt tag](https://raw.github.com/mtamer/myplanet-sts/master/soul-logo.png)
 #Task
 **Provide Clean Safe Water**
 * Preferred state: 
