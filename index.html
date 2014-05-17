@@ -91,7 +91,7 @@
 		<section id="wall" class="row col-md-12">
 			
 			<h1>Bottom 3 Shamed Schools</h1>
-			
+			<!-- Showing the 3 most voted school -->
 			<div ng-repeat="school in schools | orderObjectBy: 'rank': true | limitTo: 3">
 
 				<p>{{school.name}}</p>

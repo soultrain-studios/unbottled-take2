@@ -3,6 +3,7 @@ angular.module("reviewApp", ["firebase", "ngCookies"])
     var ref = new Firebase("https://unbottledd.firebaseio.com");
     return $firebase(ref);
   }])
+  // Prioritizing our school by most votes for bottled water
   .filter('orderObjectBy', function() {
     return function(items, field, reverse) {
       var filtered = [];
