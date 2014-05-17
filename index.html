@@ -48,7 +48,7 @@
 
 				<div class="modal-footer">
 					
-
+					<!-- Social in modal -->
 					<div class="school-social">
 
 						<a data-href="https://www.facebook.com/unbottled/" data-show-faces="false" data-share="true" class="fb-like fb_iframe_widget" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=113869198637480&amp;href=https%3A%2F%2Fwww.facebook.com%2Funbottled%2F&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=false"><span style="vertical-align: bottom; width: 100px; height: 20px;"><iframe name="f25baa534" width="100px" height="50px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/plugins/like.php?app_id=113869198637480&amp;channel=https%3A%2F%2Fs-static.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FdgdTycPTSRj.js%3Fversion%3D41%23cb%3Df2132b72d4%26domain%3Ddevelopers.facebook.com%26origin%3Dhttps%253A%252F%252Fdevelopers.facebook.com%252Ff249037c38%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fwww.facebook.com%2Funbottled%2F&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=false" class="" style="border: 400px; visibility: visible; width: 150px; height: 20px;"></iframe></span></a><br /><br />
@@ -86,86 +86,86 @@
 		</nav>
 	</header>
 
-	<div id="wrap" class="container">
+	<div id="wrap" class="container-fluid">
 		<!-- Wall of shame -->
 		<section id="wall" class="row col-md-12">
 			
-			<h1>Bottom 3 Shamed Schools</h2>
-				
-				<div ng-repeat="school in schools | orderObjectBy: 'rank': true | limitTo: 3">
+			<h1>Bottom 3 Shamed Schools</h1>
+			
+			<div ng-repeat="school in schools | orderObjectBy: 'rank': true | limitTo: 3">
 
-					<p>{{school.name}}</p>
+				<p>{{school.name}}</p>
 
-				</div>
+			</div>
 
-			</section>
+		</section>
 
-			<!-- Brief about section -->
-			<section id="what" class="row col-md-12">
+		<!-- Brief about section -->
+		<section id="what" class="row col-md-12">
 
-				<h1>What is this?</h1>
+			<h1>What is this?</h1>
 
-				<p>780 million people lack access to clean drinking water. Commercialized bottled water prevents free access to clean and safe drinking water to a large part of the world.</p>
+			<p>780 million people lack access to clean drinking water. Commercialized bottled water prevents free access to clean and safe drinking water to a large part of the world.</p>
 
-				<p>Water stored in PET (Polyethylene terephthalate) bottles can produce an element known as antimony, which is harmful to the human body. Our goal is to abolish the use of PET bottles in every high school, staring with Ottawa!</p>
+			<p>Water stored in PET (Polyethylene terephthalate) bottles can produce an element known as antimony, which is harmful to the human body. Our goal is to abolish the use of PET bottles in every high school, staring with Ottawa!</p>
 
-				<p>Search your school to answer whether or not you use plastic bottles at school, and see how it ranks compared to others!</p>
+			<p>Search your school to answer whether or not you use plastic bottles at school, and see how it ranks compared to others!</p>
 
-			</section>
+		</section>
 
-			<!-- School dropdown -->
-			<section id="school-vote" class="row col-md-12">
+		<!-- School dropdown -->
+		<section id="school-vote" class="row col-md-12">
 
-				<h1>Is your school listed?</h1>
+			<h1>Is your school listed?</h1>
 
-				<p>If your school is listed, see its ranking in Unbottled's Wall of Shame.
-					<br />
+			<p>If your school is listed, see its ranking in Unbottled's Wall of Shame.
+				<br />
 
-					<select id="list_schools" ng-model="schoolChoice">
-						<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
-					</select>
+				<select id="list_schools" ng-model="schoolChoice">
+					<option ng-repeat="school in schools" value="{{school.id}}">{{school.name}}</option>
+				</select>
 
-					<br /><br />
+				<br /><br />
 
-				</p>
+			</p>
 
-			</section>
+		</section>
 
-			<!-- List of schools and voting -->
-			<section id="school-list" class="row col-md-12">
+		<!-- List of schools and voting -->
+		<section id="school-list" class="row col-md-12">
 
-				<h1>List of Bottled Schools</h1>
+			<h1>List of Bottled Schools</h1>
 
-				<article class="school-item" ng-repeat="school in schools | orderObjectBy: 'rank': true">
-					<a data-school-name="{{school.id}}" data-school-number="{{school.number}}"></a>
+			<article class="school-item" ng-repeat="school in schools | orderObjectBy: 'rank': true">
+				<a data-school-name="{{school.id}}" data-school-number="{{school.number}}"></a>
 
-					<!-- TODO Order ranking -->
-					<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
+				<!-- TODO Order ranking -->
+				<div class="school-rank">{{school.yesVotes - school.noVotes}}</div>
 
-					<div class="school-name">{{school.name}}</div>
+				<div class="school-name">{{school.name}}</div>
 
-					<div style="clear: both;"></div>
+				<div style="clear: both;"></div>
 
-					<!-- Individual school stats -->
-					<div id="stats-{{school.number}}" data-school-name="{{school.id}}" class="school-stats">
-						<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
-						<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
+				<!-- Individual school stats -->
+				<div id="stats-{{school.number}}" data-school-name="{{school.id}}" class="school-stats">
+					<p><strong>Bottled students:</strong> {{school.yesVotes}}</p>
+					<p><strong>Unbottled students:</strong> {{school.noVotes}}</p>
 
-						<!-- Vote yes/no -->
-						<div class="voting-box" ng-hide="alreadyVoted" >
-							Do you buy bottled water at your school?<br />
+					<!-- Vote yes/no -->
+					<div class="voting-box" ng-hide="alreadyVoted" >
+						Do you buy bottled water at your school?<br />
 
-							<a href="#upvote" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
+						<a href="#upvote" ng-click="castvote(1)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-ok"> </span></a>
 
-							<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
+						<a href="#downvote" ng-click="castvote(0)" data-toggle="modal" data-target="#myModal"><span class="btnClick glyphicon glyphicon-remove"> </span></a>
 
-						</div>
-
-						<p style="text-align: center"><a href="#top">Back to top</a></p>
 					</div>
 
+					<p style="text-align: center"><a href="#top">Back to top</a></p>
+				</div>
 
-					<!-- TODO Add Twitter and Fb -->
+
+				<!-- TODO Add Twitter and Fb -->
 
 				<!--div id="school_{{school.number}}" class="school-social">
 
